@@ -1,40 +1,56 @@
 const { app, BrowserWindow } = require('electron');
 const getFollowers = require ('./getFollowers');
+const {ipcMain} = require('electron');
 const storage = require('electron-json-storage');
-
 const dataPath = storage.getDataPath();
-console.log(dataPath);
 
-storage.setDataPath(dataPath);
-/*storage.set("test", {test: "this is my json"}, function(error){
-    if (error){
+const accounts = storage.get("data", function(error, data) {
+    if (error) {
         throw error;
+    }else{
+       return data;
     }
-});*/
-
-storage.get("test", function(error, data) {
-    if (error) throw error;
-  
-    console.log(data);
 });
 
-
-/*const createWindow = () => {
+console.log(accounts);
+const createWindow = () => {
     const win = new BrowserWindow({
-      width: 800,
-      height: 600
+        width: 800,
+        height: 600,
+        webPreferences: 
+        {
+            nodeIntegration: true,
+            contextIsolation: false,
+        }      
     });
-  
+    
+    //win.webContents.openDevTools();
+
     if (true) {
-        getFollowers.fetchTwitterFollowers('foxfabi');
-        getFollowers.fetchInstaFollowers('passkratzer');
-        win.loadFile('follower.html');
+        /*getFollowers.fetchInstaFollowers(instaname);
+        getFollowers.fetchTwitterFollowers(twittername);*/
     } else {
         win.loadFile('form.html');
     }
 }
 
-//we gona create the window and let it show
 app.whenReady().then(() => {
     createWindow();
+});
+
+storage.setDataPath(dataPath);
+
+/*ipcMain.on('asynchronous-message', (event, arg) => {
+
+    storage.set("data", {instagram: arg.instagram, twitter: arg.twitter}, function(error){
+        if (error){
+            throw error;
+        }
+    });
+});*/
+
+/*storage.get("data", function(error, data) {
+    if (error) throw error;
+  
+    console.log(data.instagram);
 });*/

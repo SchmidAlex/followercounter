@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-  </body>
+
+<head>
+</head>
+
+<body>
+
+  <h2>HTML Forms</h2>
+
+  <form>
+    <label for="instagram">instagram:</label><br>
+    <input type="text" id="instagram" name="instagram"><br>
+    <label for="twitter">twitter:</label><br>
+    <input type="text" id="twitter" name="twitter"><br><br>
+    <button id="submit">kak</button>
+  </form>
+  <script>
+    const {ipcRenderer} = require('electron');
+    document.getElementById('submit').addEventListener('click', function (event) {
+      event.preventDefault();
+      let instagram = document.getElementById('instagram').value;
+      let twitter = document.getElementById("twitter").value;
+      ipcRenderer.send("asynchronous-message", {instagram, twitter})
+    });
+  </script>
+</body>
+
 </html>
