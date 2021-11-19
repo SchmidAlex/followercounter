@@ -1,22 +1,12 @@
 const { app, BrowserWindow } = require('electron');
-const getFollowers = require ('./getFollowers');
+const functions = require ('./functions');
 const {ipcMain} = require('electron');
 const storage = require('electron-json-storage');
 const dataPath = storage.getDataPath();
 
 storage.setDataPath(dataPath);
 
-var accounts = {};
-
-storage.get("data", function(error, data) {
-    if (error) {
-        throw error;
-    }else{
-        console.log(data);
-        accounts['insta'] = data.instagram;
-        accounts['twitter'] = data.twitter;
-    }
-});
+var accounts = functions.getStoredData().catch((error) => {console.log(error);})
 
 console.log(accounts);
 
@@ -34,8 +24,8 @@ const createWindow = () => {
     //win.webContents.openDevTools();
 
     if (false) {
-        /*getFollowers.fetchInstaFollowers(instName);
-        getFollowers.fetchTwitterFollowers(twitterName);*/
+        /*functions.fetchInstaFollowers(instName);
+        functions.fetchTwitterFollowers(twitterName);*/
     } else {
         win.loadFile('form.html');
     }
@@ -56,8 +46,8 @@ ipcMain.on('asynchronous-message', (event, arg) => {
 
 ipcMain.on('synchron-message', (event, arg) => {
     const followers = {};
-    followers['insta'] = getFollowers.fetchInstaFollowers(instName);
-    followers['twitter'] = getFollowers.fetchTwitterFollowers(twitterName);
+    followers['insta'] = functions.fetchInstaFollowers(instName);
+    followers['twitter'] = functions.fetchTwitterFollowers(twitterName);
     event.returnValue = followers;
 });
 
