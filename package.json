@@ -11,5 +11,9 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^16.0.1"
+  },
+  "dependencies": {
+    "scraper-instagram": "^1.0.17",
+    "twitter-api-v2": "^1.6.5"
   }
 }
