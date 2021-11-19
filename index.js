@@ -6,7 +6,7 @@ const dataPath = storage.getDataPath();
 
 storage.setDataPath(dataPath);
 
-var accounts = functions.getStoredData().catch((error) => {console.log(error);})
+var accounts = await functions.getStoredData().catch((error) => {console.log(error);})
 
 console.log(accounts);
 
