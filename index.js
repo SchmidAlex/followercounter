@@ -1,3 +1,4 @@
+const { app, BrowserWindow } = require('electron');
 const {TwitterApi} = require('twitter-api-v2');
 const Insta = require('scraper-instagram');
 
@@ -22,3 +23,16 @@ async function fetchInstaFollowers(username) {
 
 fetchTwitterFollowers('foxfabi');
 fetchInstaFollowers('passkratzer');
+
+const createWindow = () => {
+    const win = new BrowserWindow({
+      width: 800,
+      height: 600
+    });
+  
+    win.loadFile('index.html');
+}
+
+app.whenReady().then(() => {
+    createWindow();
+});
