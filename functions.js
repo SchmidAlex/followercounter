@@ -5,7 +5,6 @@ const InstaClient = new Insta();
 
 var fetchTwitterFollowers = function(username) {
     return new Promise(async function(resolve, reject) {
-        console.log(username);
         let followers = -1;
         const consumerClient = new TwitterApi({ appKey: 'YmKQuTbgly0XmoCFfg8UUp5xc', appSecret: 'R2QwdoMbG4Qx3WwWy8C4bpl0NnfYQ9IvvaPKyM8YG8tQUZd8yI' });
         const client = await consumerClient.appLogin();
