@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html>
+  <html lang="de">
 
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="img/AppLogo.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> TC | The Collector </title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <h2>HTML Forms</h2>
+  <h1>The Collector</h1>
+    <p class="text">All your Follower in one Place</p>
+      
+        <form id="AccountNameFilds">
+          <!-- generator form fields using db.json -->
+    
+          <label for="instagram">instagram:</label>
+            <input type="text" id="instagram" name="instagram">
+          
+          <label for="twitter">twitter:</label>
+            <input type="text" id="twitter" name="twitter">
+          
+          
+          <button id="submit">Anzeigen</button>
+          
+          
+        </form>
+      
 
-  <form>
-    <!-- generator form fields using db.json -->
-    <label for="instagram">instagram:</label><br>
-    <input type="text" id="instagram" name="instagram"><br>
-    <label for="twitter">twitter:</label><br>
-    <input type="text" id="twitter" name="twitter"><br><br>
-    <button id="submit">Submit</button>
-  </form>
-  <script>
+    <p class="explanation"> * Geben Sie jeweils Ihren Nickname in die<br> zugehörigen Felder ein und bestätigen sie mit Anzeigen</p>
+
+
+
+
+
+    <script>
     const {ipcRenderer} = require('electron');
     document.getElementById('submit').addEventListener('click', function (event) {
       event.preventDefault();
