@@ -47,7 +47,8 @@ ipcMain.on('get-followers', (event) =>{
                     break;
 
                 case 'instagram':
-                    functions.fetchInstaFollowers("official_aaleex").then(function(followers) {
+                    console.log(element.account);
+                    functions.fetchInstaFollowers(element.account).then(function(followers) {
                         element.follower = followers;
                     });
                     break;
