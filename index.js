@@ -1,5 +1,5 @@
 const editableSettings = require("edit-json-file");
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron');
 const functions = require ('./functions');
 var fs = require('fs');
 const { isProxy } = require("util/types");
@@ -21,9 +21,24 @@ ipcMain.on('set-plattform-account', (event, arg) => {
         }
     );   
 
+    console.log(json);
+    fs.writeFileSync(configFile, JSON.stringify(json));
+
+    event.reply('get-plattform-plattform-reply');
+});
+
+ipcMain.on('get-plattforms', (event, arg) => {
+    let plattforms = [];
+    json.plattforms.forEach(
+        element => {
+            plattforms.push(element.name);    
+        }
+    );
+    event.reply('plattforms-reply', plattforms);
+});
 
 
-
+ipcMain.on('get-followers', (event, arg) =>{
     json.plattforms.forEach(
         element => {
             switch (element.name) {
@@ -39,24 +54,10 @@ ipcMain.on('set-plattform-account', (event, arg) => {
             }
         }
     );
-
+    event.reply('get-followers', json);
     console.log(json);
     fs.writeFileSync(configFile, JSON.stringify(json));
 });
-
-ipcMain.on('get-plattforms', (event, arg) => {
-    console.log(arg)
-    let plattforms = [];
-    json.plattforms.forEach(
-        element => {
-            plattforms.push(element.name);    
-        }
-    );
-    event.reply('plattforms-reply', plattforms);
-});
-
-
-
 
 
 const createWindow = () => {

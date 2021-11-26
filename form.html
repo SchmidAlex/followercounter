@@ -49,7 +49,7 @@
 
     const {ipcRenderer} = require('electron');
     
-    ipcRenderer.send('get-plattforms', 'wurst');
+    ipcRenderer.send('get-plattforms');
 
     ipcRenderer.on('plattforms-reply', (event, arg) => {
       // Create account form 
@@ -67,6 +67,14 @@
           {name: "instagram", account: instagram}]
       };
       ipcRenderer.send('set-plattform-account', data);
+    });
+
+    ipcRenderer.on('get-plattform-plattform-reply', (event, arg) => {
+      ipcRenderer.send('get-followers')
+    });
+
+    ipcRenderer.on('get-followers-reply', (event, arg) => {
+      //todo the visualisation
     });
   </script>
 </body>
