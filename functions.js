@@ -22,7 +22,6 @@ async function fetchInstaFollowers(username) {
     return new Promise(async function(resolve) {
         InstaClient.getProfile(username)
             .then(profile => {
-                console.log('Instagram followers:', profile.followers)
                 resolve(profile.followers);
             })
     });
