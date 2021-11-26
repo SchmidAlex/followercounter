@@ -43,9 +43,22 @@
     
 
 
+  <form>
+    <!-- generator form fields using db.json -->
+    <label for="instagram">instagram:</label><br>
+    <input type="text" id="instagram" name="instagram"><br>
+    <label for="twitter">twitter:</label><br>
+    <input type="text" id="twitter" name="twitter"><br><br>
+    <button id="submit">Submit</button>
+  </form>
+  <script>
 
-    <script>
     const {ipcRenderer} = require('electron');
+    ipcRenderer.send('get-plattforms', 'wurst');
+    ipcRenderer.on('plattforms-reply', (event, arg) => {
+      // Create account form 
+      console.log(arg) // prints "pong"
+    }); 
     document.getElementById('submit').addEventListener('click', function (event) {
       event.preventDefault();
       // use a loop over form fields
