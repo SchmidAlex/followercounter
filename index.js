@@ -10,6 +10,8 @@ storage.setDataPath(dataPath);
 
 //console.log(accounts);
 
+//var accounts = functions.getStoredData();
+
 var accounts = [];
 
 storage.get("data", function(error, data) {
@@ -24,6 +26,9 @@ storage.get("data", function(error, data) {
 });
 
 console.log(accounts);
+
+
+
 
 const createWindow = () => {
     const win = new BrowserWindow({

@@ -23,7 +23,7 @@ async function fetchInstaFollowers(username) {
         .catch(err => console.error(err));
 }
 
-async function getStoredData() {
+function getStoredData() {
     userData = storage.get("data", function(error, data) {
         if (error) {
             throw error;
