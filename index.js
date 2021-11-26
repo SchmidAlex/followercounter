@@ -68,3 +68,6 @@ ipcMain.on('synchron-message', (event, arg) => {
 
 
 //storage.clear();
+
+
+// yassine test
