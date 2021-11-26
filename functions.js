@@ -19,12 +19,13 @@ var fetchTwitterFollowers = function(username) {
 }
 
 async function fetchInstaFollowers(username) {
-    InstaClient.getProfile(username)
-        .then(profile => {
-            console.log('Instagram followers:', profile.followers)
-            return 69;
-        })
-        .catch(err => console.error(err));
+    return new Promise(async function(resolve) {
+        InstaClient.getProfile(username)
+            .then(profile => {
+                console.log('Instagram followers:', profile.followers)
+                resolve(profile.followers);
+            })
+    });
 }
 
 module.exports = {

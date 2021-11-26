@@ -1,8 +1,6 @@
-const editableSettings = require("edit-json-file");
-const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const functions = require ('./functions');
 var fs = require('fs');
-const { isProxy } = require("util/types");
 let configFile = 'db.json';
 var json = JSON.parse(fs.readFileSync(configFile, 'utf8'));
 
@@ -15,9 +13,9 @@ ipcMain.on('set-plattform-account', (event, arg) => {
                 value => {
                     if (element.name === value.name) {
                         element.account = value.account;
-                    }
+                    };
                 }
-            )
+            );
         }
     );   
 
@@ -27,7 +25,7 @@ ipcMain.on('set-plattform-account', (event, arg) => {
     event.reply('get-plattform-plattform-reply');
 });
 
-ipcMain.on('get-plattforms', (event, arg) => {
+ipcMain.on('get-plattforms', (event) => {
     let plattforms = [];
     json.plattforms.forEach(
         element => {
@@ -38,7 +36,7 @@ ipcMain.on('get-plattforms', (event, arg) => {
 });
 
 
-ipcMain.on('get-followers', (event, arg) =>{
+ipcMain.on('get-followers', (event) =>{
     json.plattforms.forEach(
         element => {
             switch (element.name) {
@@ -47,11 +45,17 @@ ipcMain.on('get-followers', (event, arg) =>{
                         element.follower = followers;
                     });
                     break;
+
+                case 'instagram':
+                    functions.fetchInstaFollowers("official_aaleex").then(function(followers) {
+                        element.follower = followers;
+                    });
+                    break;
                     
                 default:
     
                     break;
-            }
+            };
         }
     );
     event.reply('get-followers', json);
@@ -73,12 +77,8 @@ const createWindow = () => {
     
     //win.webContents.openDevTools();
 
-    if (false) {
-        //TODO: If information in db.js
-    } else {
-        win.loadFile('form.html');
-    }
-}
+    win.loadFile('form.html');
+};
 
 app.whenReady().then(() => {
     createWindow();
