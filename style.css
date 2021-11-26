@@ -9,12 +9,15 @@
     z-index: -2; 
 }*/
 h1{
+    font-family: 'Comforter Brush', cursive;
     color:deeppink;
     text-align: center;
-    font-size: 4em;
+    font-size: 5em;
     text-shadow: 2px 2px 2px black;
+    margin-top: 2%;
 }
 .text{
+    font-family: 'Abel', sans-serif;
     text-align: center;
     color: #000;
     font-size: 1.5em;
@@ -22,10 +25,14 @@ h1{
     margin-bottom: 2%;
 }
 #AccountNameFilds{
+    font-family: 'Abel', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-       
+    font-size: 2em;
+}
+input{
+    height: 2em;
 }
 label{
  margin: 1%;
@@ -51,11 +58,25 @@ body::after {
     background: url(img/AppLogo.png);
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.2;
+    opacity: 0.4;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     position: absolute;
     z-index: -1;   
+  }
+  #Alien{
+        position: fixed;
+        margin-top: 5%;
+        margin-left: 80%;       
+      
+  }
+  .Alien{
+      height: 120px;
+      z-index: -1;
+      border-radius: 360px;
+      opacity: 0.9;
+      text-align: center;
+         
   }
