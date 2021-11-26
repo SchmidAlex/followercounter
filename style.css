@@ -10,11 +10,18 @@
 }*/
 h1{
     font-family: 'Comforter Brush', cursive;
-    color:deeppink;
+    color:#ff42ff;
     text-align: center;
     font-size: 5em;
-    text-shadow: 2px 2px 2px black;
-    margin-top: 2%;
+    text-shadow: 0 0 5px white,
+                 0 0 10px white,
+                 0 0 20px #ff94fa,
+                 0 0 40px #ff94fa,
+                 0 0 60px #ff94fa,
+                 0 0 90px #ff94fa,
+                 0 0 120px #ff94fa,
+                 0 0 160px #ff94fa;
+    margin-top: 5%;
 }
 .text{
     font-family: 'Abel', sans-serif;
@@ -22,7 +29,7 @@ h1{
     color: #000;
     font-size: 1.5em;
     font-weight: 700;
-    margin-bottom: 2%;
+    margin: 2% 2%;
 }
 #AccountNameFilds{
     font-family: 'Abel', sans-serif;
@@ -68,15 +75,15 @@ body::after {
   }
   #Alien{
         position: fixed;
-        margin-top: 5%;
+        margin-top: 40%;
         margin-left: 80%;       
       
   }
   .Alien{
-      height: 120px;
+      height: 80px;
       z-index: -1;
       border-radius: 360px;
-      opacity: 0.9;
+      opacity: 0.6;
       text-align: center;
          
   }
