@@ -13,6 +13,7 @@
     "electron": "^16.0.1"
   },
   "dependencies": {
+    "edit-json-file": "^1.6.2",
     "electron-json-storage": "^4.5.0",
     "scraper-instagram": "^1.0.17",
     "twitter-api-v2": "^1.6.5"
