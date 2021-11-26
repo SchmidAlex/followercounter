@@ -2,12 +2,10 @@
     margin: 0;
     padding: 0;
 }
-/*body{
-    background-image: url("img/AppLogo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -2; 
-}*/
+body{
+    background-color: #000;
+    z-index: -2;
+}
 h1{
     font-family: 'Comforter Brush', cursive;
     color:deeppink;
