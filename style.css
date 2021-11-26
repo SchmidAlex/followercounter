@@ -10,7 +10,7 @@
 }*/
 h1{
     font-family: 'Comforter Brush', cursive;
-    color:#ff42ff;
+    color:deeppink;
     text-align: center;
     font-size: 5em;
     text-shadow: 0 0 5px white,
@@ -21,7 +21,7 @@ h1{
                  0 0 90px #ff94fa,
                  0 0 120px #ff94fa,
                  0 0 160px #ff94fa;
-    margin-top: 5%;
+    margin-top: 1%;
 }
 .text{
     font-family: 'Abel', sans-serif;
@@ -29,7 +29,17 @@ h1{
     color: #000;
     font-size: 1.5em;
     font-weight: 700;
-    margin: 2% 2%;
+    margin-bottom: 1%;
+}
+.text0{
+    font-family: 'Abel', sans-serif;
+    letter-spacing: 0.3em;
+    text-align: center;
+    color: #000;
+    font-size: 2em;
+    font-weight: 900;
+    margin-bottom: 3%;
+    margin-top: 5%;
 }
 #AccountNameFilds{
     font-family: 'Abel', sans-serif;
@@ -56,8 +66,6 @@ label{
 body {
     width: auto;
     height: auto;
-    /*display: block;*/
-    /*position: relative;*/
   }
   
 body::after {
@@ -65,7 +73,7 @@ body::after {
     background: url(img/AppLogo.png);
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.4;
+    opacity: 0.7;
     top: 0;
     left: 0;
     bottom: 0;
