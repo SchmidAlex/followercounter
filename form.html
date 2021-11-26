@@ -54,17 +54,25 @@
   <script>
 
     const {ipcRenderer} = require('electron');
+    
     ipcRenderer.send('get-plattforms', 'wurst');
+
     ipcRenderer.on('plattforms-reply', (event, arg) => {
       // Create account form 
-      console.log(arg) // prints "pong"
-    }); 
+    });
+
     document.getElementById('submit').addEventListener('click', function (event) {
       event.preventDefault();
       // use a loop over form fields
       let instagram = document.getElementById('instagram').value;
       let twitter = document.getElementById("twitter").value;
-      ipcRenderer.send("asynchronous-message", {instagram, twitter})
+      // ipcRenderer.send("asynchronous-message", {instagram, twitter})
+      let data = { 
+        plattform: 
+          [{name: "twitter", account: twitter},
+          {name: "instagram", account: instagram}]
+      };
+      ipcRenderer.send('set-plattform-account', data);
     });
   </script>
 </body>
