@@ -1,29 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const functions = require ('./functions');
 const {ipcMain} = require('electron');
-const storage = require('electron-json-storage');
-const dataPath = storage.getDataPath();
-
-storage.setDataPath(dataPath);
-
-//var accounts = await functions.getStoredData().catch((error) => {console.log(error);});
-
-//console.log(accounts);
-
-var accounts = [];
-
-storage.get("data", function(error, data) {
-    if (error) {
-        throw error;
-    }else{
-        console.log(data);
-        accounts['instagram'] = data['instagram'];
-        accounts['twitter'] = data['twitter'];
-        console.log(accounts);
-    }
-});
-
-console.log(accounts);
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -39,8 +16,7 @@ const createWindow = () => {
     //win.webContents.openDevTools();
 
     if (false) {
-        /*functions.fetchInstaFollowers(instName);
-        functions.fetchTwitterFollowers(twitterName);*/
+        //TODO: If information in db.js
     } else {
         win.loadFile('form.html');
     }
@@ -49,22 +25,3 @@ const createWindow = () => {
 app.whenReady().then(() => {
     createWindow();
 });
-
-ipcMain.on('asynchronous-message', (event, arg) => {
-
-    storage.set("data", {instagram: arg.instagram, twitter: arg.twitter}, function(error){
-        if (error){
-            throw error;
-        }
-    });
-});
-
-ipcMain.on('synchron-message', (event, arg) => {
-    const followers = {};
-    followers['insta'] = functions.fetchInstaFollowers(instName);
-    followers['twitter'] = functions.fetchTwitterFollowers(twitterName);
-    event.returnValue = followers;
-});
-
-
-//storage.clear();
