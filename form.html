@@ -9,6 +9,7 @@
   <h2>HTML Forms</h2>
 
   <form>
+    <!-- generator form fields using db.json -->
     <label for="instagram">instagram:</label><br>
     <input type="text" id="instagram" name="instagram"><br>
     <label for="twitter">twitter:</label><br>
@@ -19,6 +20,7 @@
     const {ipcRenderer} = require('electron');
     document.getElementById('submit').addEventListener('click', function (event) {
       event.preventDefault();
+      // use a loop over form fields
       let instagram = document.getElementById('instagram').value;
       let twitter = document.getElementById("twitter").value;
       ipcRenderer.send("asynchronous-message", {instagram, twitter})

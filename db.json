@@ -1,0 +1,28 @@
+{
+    "plattforms": [
+       {
+          "name": "twitter",
+          "account": "foxfabi",
+          "follower": 63
+       },
+       {
+          "name": "instagram",
+          "account": "passkratzer",
+          "follower": 139
+       },
+       {
+          "name": "scheissbuch",
+          "follower": 639
+       },
+       {
+          "name": "tiktok",
+          "account": "",
+          "follower": 0
+       },
+       {
+         "name": "linkedin",
+         "account": "",
+         "follower": 0
+      }       
+    ]
+ }
