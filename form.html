@@ -74,6 +74,14 @@
       };
       ipcRenderer.send('set-plattform-account', data);
     });
+
+    ipcRenderer.on('get-plattform-plattform-reply', (event, arg) => {
+      ipcRenderer.send('get-followers')
+    });
+
+    ipcRenderer.on('get-followers-reply', (event, arg) => {
+      //todo the visualisation
+    });
   </script>
 </body>
 
