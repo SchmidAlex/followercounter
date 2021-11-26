@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*body{
+    background-image: url("img/AppLogo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -2; 
+}*/
+h1{
+    font-family: 'Comforter Brush', cursive;
+    color:deeppink;
+    text-align: center;
+    font-size: 5em;
+    text-shadow: 0 0 5px white,
+                 0 0 10px white,
+                 0 0 20px #ff94fa,
+                 0 0 40px #ff94fa,
+                 0 0 60px #ff94fa,
+                 0 0 90px #ff94fa,
+                 0 0 120px #ff94fa,
+                 0 0 160px #ff94fa;
+    margin-top: 1%;
+}
+.text{
+    font-family: 'Abel', sans-serif;
+    text-align: center;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 1%;
+}
+.text0{
+    font-family: 'Abel', sans-serif;
+    letter-spacing: 0.3em;
+    text-align: center;
+    color: #000;
+    font-size: 2em;
+    font-weight: 900;
+    margin-bottom: 3%;
+    margin-top: 5%;
+}
+#AccountNameFilds{
+    font-family: 'Abel', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2em;
+}
+input{
+    height: 2em;
+}
+label{
+ margin: 1%;
+}
+.explanation{
+    font-size: 0.9em;
+    color: #000;
+    text-align: center;
+}
+#submit{
+    margin: 2% 2%;
+}
+
+body {
+    width: auto;
+    height: auto;
+  }
+  
+body::after {
+    content: "";
+    background: url(img/AppLogo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+  #Alien{
+        position: fixed;
+        margin-top: 40%;
+        margin-left: 80%;       
+      
+  }
+  .Alien{
+      height: 80px;
+      z-index: -1;
+      border-radius: 360px;
+      opacity: 0.6;
+      text-align: center;
+         
+  }
