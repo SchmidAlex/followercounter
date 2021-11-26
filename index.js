@@ -6,7 +6,22 @@ const dataPath = storage.getDataPath();
 
 storage.setDataPath(dataPath);
 
-var accounts = await functions.getStoredData().catch((error) => {console.log(error);})
+//var accounts = await functions.getStoredData().catch((error) => {console.log(error);});
+
+//console.log(accounts);
+
+var accounts = [];
+
+storage.get("data", function(error, data) {
+    if (error) {
+        throw error;
+    }else{
+        console.log(data);
+        accounts['instagram'] = data['instagram'];
+        accounts['twitter'] = data['twitter'];
+        console.log(accounts);
+    }
+});
 
 console.log(accounts);
 
