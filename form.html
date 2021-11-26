@@ -55,7 +55,7 @@
 
     const {ipcRenderer} = require('electron');
     
-    ipcRenderer.send('get-plattforms', 'wurst');
+    ipcRenderer.send('get-plattforms');
 
     ipcRenderer.on('plattforms-reply', (event, arg) => {
       // Create account form 

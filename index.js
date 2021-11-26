@@ -28,7 +28,6 @@ ipcMain.on('set-plattform-account', (event, arg) => {
 });
 
 ipcMain.on('get-plattforms', (event, arg) => {
-    console.log(arg)
     let plattforms = [];
     json.plattforms.forEach(
         element => {
