@@ -81,6 +81,9 @@ body::after {
     position: absolute;
     z-index: -1;   
   }
+  button{
+      height: 20px;
+  }
   #Alien{
         position: fixed;
         margin-top: 40%;
