@@ -17,7 +17,13 @@
     <button id="submit">Submit</button>
   </form>
   <script>
+
     const {ipcRenderer} = require('electron');
+    ipcRenderer.send('get-plattforms', 'wurst');
+    ipcRenderer.on('plattforms-reply', (event, arg) => {
+      // Create account form 
+      console.log(arg) // prints "pong"
+    }); 
     document.getElementById('submit').addEventListener('click', function (event) {
       event.preventDefault();
       // use a loop over form fields

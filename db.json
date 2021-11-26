@@ -3,7 +3,7 @@
        {
           "name": "twitter",
           "account": "foxfabi",
-          "follower": 63
+          "follower": 9999
        },
        {
           "name": "instagram",
@@ -12,6 +12,7 @@
        },
        {
           "name": "scheissbuch",
+		  "account": "",
           "follower": 639
        },
        {
