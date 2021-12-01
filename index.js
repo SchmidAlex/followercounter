@@ -35,7 +35,6 @@ ipcMain.on('get-plattforms', (event) => {
     event.reply('plattforms-reply', plattforms);
 });
 
-
 ipcMain.on('get-followers', (event) =>{
     json.plattforms.forEach(
         element => {
@@ -59,9 +58,10 @@ ipcMain.on('get-followers', (event) =>{
             };
         }
     );
-    event.reply('get-followers', json);
     console.log(json);
     fs.writeFileSync(configFile, JSON.stringify(json));
+    
+    event.reply('get-followers', json);
 });
 
 
