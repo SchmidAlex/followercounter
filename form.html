@@ -23,44 +23,19 @@
   <p class="text">All your follower in one place</p>
 
 
-  <form id="AccountNameFilds">
+  <form id="AccountNameFields">
     <!-- generator form fields using db.json -->
-
-    <div class="flexbox">
+    <!--<div class="flexbox">
       <label for="instagram">Instagram*:</label>
       <input type="text" id="instagram" name="instagram">
-    </div>
+    </div>-->
 
-    <div class="flexbox">
-      <label for="twitter">Twitter*:</label>
-      <input type="text" id="twitter" name="twitter">
-    </div>
 
-    <div class="flexbox">
-      <label for="tiktok">TikTok*:</label>
-      <input type="text" id="tiktok" name="tiktok">
-    </div>
-
-    <div class="flexbox">
-      <label for="facebook">Facebook*:</label>
-      <input type="text" id="facebook" name="facebook">
-    </div>
-
-    <div class="flexbox">
-      <label for="onlyfans">OnlyFans*:</label>
-      <input type="text" id="onlyfans" name="onlyfans">
-    </div>
-
-    <div class="flexbox">
-      <label for="linkedin">LinkedIn*:</label>
-      <input type="text" id="linkedin" name="linkedin">
-    </div>
+   
 
   </form>
-  <div class="flexbox1">
-    <button id="submit">show</button>
-  </div>
-
+  
+  
 
   <p class="text0">One World One Place</p>
   <p class="explanation"> * Enter your nickname in the relevant fields and confirm with show</p>
@@ -68,62 +43,55 @@
   <p class="copy">&copy; Claudio/Alexander/Yassine</p>
 
 
-
-          <div class="flexbox">
-            <label for="linkedin">LinkedIn*:</label>
-            <input type="text"  id="linkedin" name="linkedin">
-          </div>
-          
-        </form>
-        
-        <div class="flexbox1">
-          <button id="submit">show</button>
-        </div>
-      
-      
-      <p class="text0">One World One Place</p>
-      <p class="explanation"> * Enter your nickname in the relevant fields and confirm with show</p>
-   
-      <p class="copy">&copy; Claudio/Alexander/Yassine</p>
-
-
   <script>
-    const {
-      ipcRenderer
-    } = require('electron');
+    const { ipcRenderer } = require('electron');
 
     ipcRenderer.send('get-plattforms');
 
     ipcRenderer.on('plattforms-reply', (event, arg) => {
-      // Create account form 
-      //<form id="bevor_eingabe">
-      //foreach arg => element { element(element = plattform name)}
-      //</form>
-      console.log(arg);
+      var html;
+
+      arg.forEach(element => {
+        html += "<div class=\"flexbox\"><label for=" + element + ">" + element + "*:</label><input \" type=\"text\" id=" + element + " name=\"element\"></div>"
+      });
+
+      html += "<div class=\"flexbox1\"><button id=\"submit\">show</button></div>";
+      
+      document.getElementById('AccountNameFields').innerHTML = html;
+
+      document.getElementById('submit').addEventListener('click', function (event) {
+      
+        event.preventDefault();
+
+        let data = {
+          plattform: []
+        };
+
+        arg.forEach(element => {
+          data.plattform.push(
+            name => element,
+            account => document.getElementById.value
+          );
+        });
+
+        data = {
+          plattform: [
+            {
+              name: "penis",
+              account: "arschloch"
+            },
+            {
+              name: "zweitpenis",
+              account: "zweitsarschloch"
+            }
+          ]
+        };
+
+        ipcRenderer.send('set-plattform-account', data);
+      });
     });
 
-    document.getElementById('submit').addEventListener('click', function (event) {
-      window.location.href = "follower.html";
-      event.preventDefault();
-      // use a loop over form fields
-      let instagram = document.getElementById('instagram').value;
-      let twitter = document.getElementById("twitter").value;
-      // ipcRenderer.send("asynchronous-message", {instagram, twitter})
-      let data = {
-        plattform: [{
-            name: "twitter",
-            account: twitter
-          },
-          {
-            name: "instagram",
-            account: instagram
-          }
-        ]
-      };
-      ipcRenderer.send('set-plattform-account', data);
-    });
-
-    ipcRenderer.on('get-plattform-plattform-reply', (event, arg) => {
+    ipcRenderer.on('set-plattform-reply', (event, arg) => {
       ipcRenderer.send('get-followers')
     });
 

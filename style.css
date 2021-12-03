@@ -48,7 +48,7 @@ h1{
     margin-top: 5%;
 }
 
-#AccountNameFilds{
+#AccountNameFields{
     font-family: 'Abel', sans-serif;
     display: flex;
     justify-content: space-around;
@@ -65,6 +65,7 @@ h1{
     display: flex;
     align-items: center;
     flex-direction: column;
+    border: 1px solid red;
     
 }
 .flexbox1{
