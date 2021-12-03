@@ -47,11 +47,6 @@ ipcMain.on('get-followers', (event) => {
             actions.push(fn);
         }
     });
-<<<<<<< Updated upstream
-    //store data in .json
-    //reply get-followers-reply data
-    event.reply('get-followers-reply');
-=======
     // we now have a promises array and we want to wait for it
     // pass array of promises
     console.log(actions);
@@ -61,7 +56,6 @@ ipcMain.on('get-followers', (event) => {
         fs.writeFileSync(configFile, JSON.stringify(accounts));
         event.reply('get-plattform-plattform-reply');            
     }).catch((err) => console.log("Error!", err));           
->>>>>>> Stashed changes
 });
 
 const createWindow = () => {
