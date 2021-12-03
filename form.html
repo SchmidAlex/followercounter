@@ -85,11 +85,16 @@
     ipcRenderer.on('get-followers-reply', (event, arg) => {
       //display hidden -> id bevor_eingabe
       //todo the visualisation of arg
-      let content = "";
+      var content = "";
       arg.plattform.forEach(element => {
-        element.name;
-        element.account;
-        element.follower;
+
+        content += "<div class=\"plattform\">" + element.name + "</div>";
+        content += "<div class=\"account\">" + element.acount + "</div>";
+        content += "<div class=\"follower\">" + element.follower + "</div>";
+
+        //element.name;
+        //element.account;
+        //element.follower;
 
       });
 
