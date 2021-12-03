@@ -6,13 +6,12 @@ let plattformsFile = 'plattforms.json';
 let configFile = 'db.json';
 var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
 
-
 ipcMain.on('get-plattforms', (event) => {
     let plattforms = [];
     json.plattforms.forEach((element) => {
         plattforms.push(element.name);
     });
-    event.reply('plattforms-reply', plattforms);
+    event.reply('get-plattforms-reply', plattforms);
 });
 
 ipcMain.on('set-plattform-account', (event, arg) => {
@@ -27,7 +26,7 @@ ipcMain.on('set-plattform-account', (event, arg) => {
     });
 
     fs.writeFileSync(plattformsFile, JSON.stringify(json));
-    event.reply('get-plattform-plattform-reply');
+    event.reply('set-plattform-account-reply');
 });
 
 // var fn = function asyncMultiplyBy2(v){ // sample async action
@@ -41,7 +40,7 @@ let actions = [];
 
 let accounts = [];
 ipcMain.on('get-followers', (event) => {
-    json.plattforms.forEach(element => {
+    json.plattforms.forEach((element) => {
         if (element.account) {
             let fn = fetchFollowers(element);
             actions.push(fn);
@@ -50,12 +49,14 @@ ipcMain.on('get-followers', (event) => {
     // we now have a promises array and we want to wait for it
     // pass array of promises
     console.log(actions);
-    Promise.all(actions).then((values) => { 
-        accounts = values; // every promise is replaced by its element
-        console.log("Accounts", accounts);
-        fs.writeFileSync(configFile, JSON.stringify(accounts));
-        event.reply('get-plattform-plattform-reply');            
-    }).catch((err) => console.log("Error!", err));           
+    Promise.all(actions)
+        .then((values) => {
+            accounts = values; // every promise is replaced by its element
+            console.log('Accounts', accounts);
+            fs.writeFileSync(configFile, JSON.stringify(accounts));
+            event.reply('get-followers-reply');
+        })
+        .catch((err) => console.log('Error!', err));
 });
 
 const createWindow = () => {

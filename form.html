@@ -37,23 +37,24 @@
 
     ipcRenderer.send('get-plattforms');
 
-    ipcRenderer.on('plattforms-reply', (event, arg) => {
+    ipcRenderer.on('get-plattforms-reply', (event, arg) => {
       var html;
 
       arg.forEach(element => {
-        html += "<form id=\"AccountNameFields\"><div class=\"flexbox\"><label for=" + element + ">" + element + "*:</label><input \" type=\"text\" id=" + element + " name=\"element\"></div></form>"
+        html += "<form id=\"AccountNameFields\"><div class=\"flexbox\"><label for=" + element + ">" + element +
+          "*:</label><input \" type=\"text\" id=" + element + " name=\"element\"></div></form>"
       });
 
       html += "<div class=\"flexbox1\"><button id=\"submit\">show</button></div>";
-      
+
       // Create account form 
       //<form id="bevor_eingabe">
       //foreach arg => element { element(element = plattform name)}
       //</form>
-      
+
       document.getElementById('content').innerHTML = html;
-     // arg.forEach(element => 
-            
+      // arg.forEach(element => 
+
       //)
 
       document.getElementById('submit').addEventListener('click', function (event) {
@@ -78,7 +79,7 @@
 
     });
 
-    ipcRenderer.on('get-plattform-plattform-reply', (event, arg) => {
+    ipcRenderer.on('set-plattform-account-reply', (event, arg) => {
       ipcRenderer.send('get-followers')
     });
 
@@ -97,7 +98,7 @@
         //element.follower;
 
       });
-
+      console.log("test")
       document.getElementById("content").innerHTML = content;
     });
 
