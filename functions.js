@@ -28,10 +28,11 @@ const fetchFollowers = function (element) {
                 });
                 break;
             case 'instagram':
+                console.log("Before", element);
                 InstaClient.getProfile(element.account)
                     .then((profile) => {
                         element.follower = profile.followers;
-                        console.log(element);
+                        console.log("after", element);
                         resolve(element);
                     })
                     .catch((err) => console.log('Error, insta!', err));

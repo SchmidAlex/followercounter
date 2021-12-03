@@ -80,7 +80,8 @@
     });
 
     ipcRenderer.on('set-plattform-account-reply', (event, arg) => {
-      ipcRenderer.send('get-followers')
+      console.log(event)
+      ipcRenderer.send('get-followers', arg)
     });
 
     ipcRenderer.on('get-followers-reply', (event, arg) => {
