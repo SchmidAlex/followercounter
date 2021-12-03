@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-  <html lang="de">
+<html lang="de">
 
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="img/AppLogo.png">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&display=swap" rel="stylesheet">
-    <title> TC | The Collector </title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/AppLogo.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&display=swap" rel="stylesheet">
+  <title> TC | The Collector </title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -72,9 +72,10 @@
     
 
   <script>
+    const {
+      ipcRenderer
+    } = require('electron');
 
-    const {ipcRenderer} = require('electron');
-    
     ipcRenderer.send('get-plattforms');
 
     ipcRenderer.on('plattforms-reply', (event, arg) => {
@@ -82,15 +83,22 @@
     });
 
     document.getElementById('submit').addEventListener('click', function (event) {
+      window.location.href = "follower.html";
       event.preventDefault();
       // use a loop over form fields
       let instagram = document.getElementById('instagram').value;
       let twitter = document.getElementById("twitter").value;
       // ipcRenderer.send("asynchronous-message", {instagram, twitter})
-      let data = { 
-        plattform: 
-          [{name: "twitter", account: twitter},
-          {name: "instagram", account: instagram}]
+      let data = {
+        plattform: [{
+            name: "twitter",
+            account: twitter
+          },
+          {
+            name: "instagram",
+            account: instagram
+          }
+        ]
       };
       ipcRenderer.send('set-plattform-account', data);
     });
@@ -102,6 +110,7 @@
     ipcRenderer.on('get-followers-reply', (event, arg) => {
       //todo the visualisation
     });
+
   </script>
 
 
