@@ -1,5 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
-const functions = require ('./functions');
+const { fetchFollowers } = require ('./functions');
 var fs = require('fs');
 let configFile = 'db.json';
 var json = JSON.parse(fs.readFileSync(configFile, 'utf8'));
@@ -35,34 +35,57 @@ ipcMain.on('get-plattforms', (event) => {
     event.reply('plattforms-reply', plattforms);
 });
 
+// let accounts = [];
+
 ipcMain.on('get-followers', (event) =>{
     json.plattforms.forEach(
         element => {
-            switch (element.name) {
-                case 'twitter':
-                    functions.fetchTwitterFollowers(element.account).then(function(followers) {
-                        element.follower = followers;
-                    });
-                    break;
-
-                case 'instagram':
-                    console.log(element.account);
-                    functions.fetchInstaFollowers(element.account).then(function(followers) {
-                        element.follower = followers;
-                    });
-                    break;
-                    
-                default:
-    
-                    break;
-            };
+            // accounts.push({name: element.name, account: element.account, followers: -1});
+            element = fetchFollowers(element);
         }
-    );
+    )
     console.log(json);
     fs.writeFileSync(configFile, JSON.stringify(json));
-    
-    event.reply('get-followers', json);
+    event.reply('get-followers', json);   
 });
+
+// accounts.forEach(element => {
+//     element = functions.fetch(element);
+// });
+
+
+
+
+
+// ipcMain.on('get-followers', (event) =>{
+//     json.plattforms.forEach(
+//         element => {
+//             switch (element.name) {
+//                 case 'twitter':
+//                     functions.fetchTwitterFollowers(element.name).then(function(followers) {
+//                         element.follower = followers;
+//                     });
+//                     break;
+
+//                 case 'instagram':
+//                     console.log(element.account);
+//                     functions.fetchInstaFollowers(element.account).then(function(followers) {
+//                         element.follower = followers;
+//                     });
+//                     break;
+                    
+//                 default:
+    
+//                     break;
+//             };
+//         }
+//     ).then(function() {
+//         console.log(json);
+//         fs.writeFileSync(configFile, JSON.stringify(json));
+        
+//         event.reply('get-followers', json);
+//     })
+// });
 
 
 const createWindow = () => {
