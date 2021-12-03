@@ -5,15 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "lint": "eslint --fix ."
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^16.0.1"
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.0"
   },
   "dependencies": {
     "edit-json-file": "^1.6.2",
+    "electron": "^16.0.1",
     "electron-json-storage": "^4.5.0",
     "scraper-instagram": "^1.0.17",
     "twitter-api-v2": "^1.6.5"
