@@ -47,28 +47,33 @@ h1{
     margin-bottom: 3%;
     margin-top: 5%;
 }
+#content{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
 
 #AccountNameFields{
     font-family: 'Abel', sans-serif;
     display: flex;
-    justify-content: space-around;
+    /*justify-content: space-around;
     flex-wrap: wrap;
-    align-content: space-between;
+    align-content: space-between;*/
     font-size: 2em;
     color:#ffffff;
 }
 
 .flexbox {
-    min-width: 30%;
     margin: 2%;
     height: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 1px solid red;
-    
+      
 }
 .flexbox1{
+    min-width: 100%;
     margin-top: 2%;
     display: flex;
     justify-content: center;
@@ -137,7 +142,4 @@ body::after {
     color: #ffffff;
     margin-top: 3%;
     text-align: center;
-  }
-  #hidden{
-      display:none;
   }
