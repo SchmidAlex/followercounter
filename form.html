@@ -44,7 +44,9 @@
 
 
   <script>
-    const { ipcRenderer } = require('electron');
+    const {
+      ipcRenderer
+    } = require('electron');
 
     ipcRenderer.send('get-plattforms');
 
@@ -57,45 +59,44 @@
 
       html += "<div class=\"flexbox1\"><button id=\"submit\">show</button></div>";
       
+      // Create account form 
+      //<form id="bevor_eingabe">
+      //foreach arg => element { element(element = plattform name)}
+      //</form>
+      
       document.getElementById('AccountNameFields').innerHTML = html;
+     // arg.forEach(element => 
+            
+      //)
 
       document.getElementById('submit').addEventListener('click', function (event) {
-      
         event.preventDefault();
-
+        // use a loop over form fields
+        let instagram = document.getElementById('instagram').value;
+        let twitter = document.getElementById("twitter").value;
+        // ipcRenderer.send("asynchronous-message", {instagram, twitter})
         let data = {
-          plattform: []
-        };
-
-        arg.forEach(element => {
-          data.plattform.push(
-            name => element,
-            account => document.getElementById.value
-          );
-        });
-
-        data = {
-          plattform: [
-            {
-              name: "penis",
-              account: "arschloch"
+          plattform: [{
+              name: "twitter",
+              account: twitter
             },
             {
-              name: "zweitpenis",
-              account: "zweitsarschloch"
+              name: "instagram",
+              account: instagram
             }
           ]
         };
-
         ipcRenderer.send('set-plattform-account', data);
       });
+
     });
 
-    ipcRenderer.on('set-plattform-reply', (event, arg) => {
+    ipcRenderer.on('get-plattform-plattform-reply', (event, arg) => {
       ipcRenderer.send('get-followers')
     });
 
     ipcRenderer.on('get-followers-reply', (event, arg) => {
+      document.getElementById("AccountNameFields").id = "hidden"
       //display hidden -> id bevor_eingabe
       //todo the visualisation of arg
     });

@@ -138,3 +138,6 @@ body::after {
     margin-top: 3%;
     text-align: center;
   }
+  #hidden{
+      display:none;
+  }

@@ -40,6 +40,7 @@ ipcMain.on('get-followers', (event) => {
     });
     //store data in .json
     //reply get-followers-reply data
+    event.reply('get-followers-reply');
 });
 
 const createWindow = () => {
