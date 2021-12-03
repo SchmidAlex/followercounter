@@ -15,61 +15,61 @@
 </head>
 
 <body>
- <!-- <div id="Alien">
+  <!-- <div id="Alien">
     <img class="Alien" src="img/Domcake-Dancing-Alien.gif" alt="Dancing Alien">
   </div>-->
-   
+
   <h1>The Collector</h1>
-  <p class="text">All your follower in one place</p>  
-      
-      
-        <form id="AccountNameFilds">
-          <!-- generator form fields using db.json -->
+  <p class="text">All your follower in one place</p>
 
-          <div class="flexbox">
-            <label for="instagram">Instagram*:</label>
-            <input type="text" id="instagram" name="instagram">
-          </div>
 
-          <div class="flexbox" >
-            <label for="twitter">Twitter*:</label>
-            <input type="text"  id="twitter" name="twitter">
-          </div>
+  <form id="AccountNameFilds">
+    <!-- generator form fields using db.json -->
 
-          <div class="flexbox">
-            <label for="tiktok">TikTok*:</label>
-            <input type="text"  id="tiktok" name="tiktok">
-          </div>    
+    <div class="flexbox">
+      <label for="instagram">Instagram*:</label>
+      <input type="text" id="instagram" name="instagram">
+    </div>
 
-          <div class="flexbox">
-            <label for="facebook">Facebook*:</label>
-            <input type="text"  id="facebook" name="facebook">
-          </div>
+    <div class="flexbox">
+      <label for="twitter">Twitter*:</label>
+      <input type="text" id="twitter" name="twitter">
+    </div>
 
-          <div class="flexbox">
-            <label for="onlyfans">OnlyFans*:</label>
-            <input type="text"  id="onlyfans" name="onlyfans">
-          </div>
+    <div class="flexbox">
+      <label for="tiktok">TikTok*:</label>
+      <input type="text" id="tiktok" name="tiktok">
+    </div>
 
-          <div class="flexbox">
-            <label for="linkedin">LinkedIn*:</label>
-            <input type="text"  id="linkedin" name="linkedin">
-          </div>
-          
-        </form>
-        <div class="flexbox1">
-          <button id="submit">show</button>
-        </div>
-      
-      
-      <p class="text0">One World One Place</p>
-      <p class="explanation"> * Enter your nickname in the relevant fields and confirm with show</p>
-   
-      <p class="copy">&copy; Claudio/Alexander/Yassine</p>
+    <div class="flexbox">
+      <label for="facebook">Facebook*:</label>
+      <input type="text" id="facebook" name="facebook">
+    </div>
 
-    
-    
-    
+    <div class="flexbox">
+      <label for="onlyfans">OnlyFans*:</label>
+      <input type="text" id="onlyfans" name="onlyfans">
+    </div>
+
+    <div class="flexbox">
+      <label for="linkedin">LinkedIn*:</label>
+      <input type="text" id="linkedin" name="linkedin">
+    </div>
+
+  </form>
+  <div class="flexbox1">
+    <button id="submit">show</button>
+  </div>
+
+
+  <p class="text0">One World One Place</p>
+  <p class="explanation"> * Enter your nickname in the relevant fields and confirm with show</p>
+
+  <p class="copy">&copy; Claudio/Alexander/Yassine</p>
+
+
+
+
 
   <script>
     const {
@@ -80,6 +80,10 @@
 
     ipcRenderer.on('plattforms-reply', (event, arg) => {
       // Create account form 
+      //<form id="bevor_eingabe">
+      //foreach arg => element { element(element = plattform name)}
+      //</form>
+      console.log(arg);
     });
 
     document.getElementById('submit').addEventListener('click', function (event) {
@@ -108,13 +112,14 @@
     });
 
     ipcRenderer.on('get-followers-reply', (event, arg) => {
-      //todo the visualisation
+      //display hidden -> id bevor_eingabe
+      //todo the visualisation of arg
     });
 
   </script>
 
 
-  
+
 
 
 </body>

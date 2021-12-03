@@ -6,6 +6,7 @@ const InstaClient = new Insta();
 
 const fetchFollowers = function (element) {
     return new Promise(function (resolve, reject) {
+        //if element.account is empty
         switch (element.name) {
             case 'twitter':
                 const consumerClient = new TwitterApi({
