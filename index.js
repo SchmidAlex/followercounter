@@ -2,22 +2,10 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const { fetchFollowers } = require('./functions');
 var fs = require('fs');
+let plattformsFile = 'plattforms.json';
 let configFile = 'db.json';
-var json = JSON.parse(fs.readFileSync(configFile, 'utf8'));
+var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
 
-ipcMain.on('set-plattform-account', (event, arg) => {
-    json.plattforms.forEach((element) => {
-        arg.plattform.forEach((value) => {
-            if (element.name === value.name) {
-                element.account = value.account;
-            }
-        });
-    });
-
-    fs.writeFileSync(configFile, JSON.stringify(json));
-
-    event.reply('get-plattform-plattform-reply');
-});
 
 ipcMain.on('get-plattforms', (event) => {
     let plattforms = [];
@@ -27,20 +15,53 @@ ipcMain.on('get-plattforms', (event) => {
     event.reply('plattforms-reply', plattforms);
 });
 
-let data = [];
-ipcMain.on('get-followers', (event) => {
+ipcMain.on('set-plattform-account', (event, arg) => {
     json.plattforms.forEach((element) => {
-        fetchFollowers(element)
-            .then((newElement) => {
-                data.push(newElement);
-                console.log(newElement);
-                console.log(element);
-            })
-            .catch((err) => console.log(err));
+        arg.plattform.forEach((value) => {
+            if (element.name === value.name) {
+                if (value.account) {
+                    element.account = value.account;
+                }
+            }
+        });
     });
+
+    fs.writeFileSync(plattformsFile, JSON.stringify(json));
+    event.reply('get-plattform-plattform-reply');
+});
+
+// var fn = function asyncMultiplyBy2(v){ // sample async action
+//     return new Promise(resolve => {
+//         setTimeout(() => resolve(v * 2), 100)
+//     });
+// };
+
+var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
+let actions = [];
+
+let accounts = [];
+ipcMain.on('get-followers', (event) => {
+    json.plattforms.forEach(element => {
+        if (element.account) {
+            let fn = fetchFollowers(element);
+            actions.push(fn);
+        }
+    });
+<<<<<<< Updated upstream
     //store data in .json
     //reply get-followers-reply data
     event.reply('get-followers-reply');
+=======
+    // we now have a promises array and we want to wait for it
+    // pass array of promises
+    console.log(actions);
+    Promise.all(actions).then((values) => { 
+        accounts = values; // every promise is replaced by its element
+        console.log("Accounts", accounts);
+        fs.writeFileSync(configFile, JSON.stringify(accounts));
+        event.reply('get-plattform-plattform-reply');            
+    }).catch((err) => console.log("Error!", err));           
+>>>>>>> Stashed changes
 });
 
 const createWindow = () => {
