@@ -5,7 +5,7 @@ var fs = require('fs');
 let configFile = 'db.json';
 var json = JSON.parse(fs.readFileSync(configFile, 'utf8'));
 
-console.log(json);
+//console.log(json);
 
 ipcMain.on('set-plattform-account', (event, arg) => {
     json.plattforms.forEach((element) => {
@@ -16,7 +16,7 @@ ipcMain.on('set-plattform-account', (event, arg) => {
         });
     });
 
-    console.log(json);
+    //console.log(json);
     fs.writeFileSync(configFile, JSON.stringify(json));
 
     event.reply('get-plattform-plattform-reply');
@@ -35,9 +35,10 @@ ipcMain.on('get-plattforms', (event) => {
 ipcMain.on('get-followers', (event) => {
     json.plattforms.forEach((element) => {
         //element = fetchFollowers(element);
+        //fetchFollowers(element);
         console.log(fetchFollowers(element));
     });
-    console.log(json);
+    //console.log(json);
     fs.writeFileSync(configFile, JSON.stringify(json));
     event.reply('get-followers', json);
 });

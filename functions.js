@@ -5,7 +5,6 @@ const Insta = require('scraper-instagram');
 const InstaClient = new Insta();
 
 const fetchFollowers = function (element) {
-    let realElement = element;
     switch (element.name) {
         case 'twitter':
             const consumerClient = new TwitterApi({
@@ -14,20 +13,23 @@ const fetchFollowers = function (element) {
             });
             consumerClient.appLogin().then((client) => {
                 client.v1.searchUsers(element.account).then((user) => {
-                    realElement.follower = user._realData[0].followers_count;
+                    element.follower = user._realData[0].followers_count;
+                    console.log('this should be the first console log');
+                    console.log(element.follower);
                 });
             });
             break;
         case 'instagram':
             InstaClient.getProfile(element.account).then((profile) => {
-                realElement.follower = profile.followers;
+                element.follower = profile.followers;
             });
             break;
         default:
             //
             break;
     }
-    return realElement;
+    //console.log(element.follower);
+    return element;
 };
 
 // const fetchTwitterFollowers = function(username) {
