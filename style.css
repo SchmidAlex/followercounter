@@ -51,7 +51,7 @@ h1{
     display:flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    align-content: space-between;
+    align-items: center;
 }
 
 #AccountNameFields{
@@ -65,6 +65,7 @@ h1{
 }
 
 .flexbox {
+    width: 32%;
     margin: 2%;
     height: auto;
     display: flex;
