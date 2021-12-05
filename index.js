@@ -48,7 +48,6 @@ ipcMain.on('get-followers', (event) => {
     });
     // we now have a promises array and we want to wait for it
     // pass array of promises
-    console.log(actions);
     Promise.all(actions)
         .then((values) => {
             accounts = values; // every promise is replaced by its element
