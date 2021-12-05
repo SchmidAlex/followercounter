@@ -29,12 +29,6 @@ ipcMain.on('set-plattform-account', (event, arg) => {
     event.reply('set-plattform-account-reply');
 });
 
-// var fn = function asyncMultiplyBy2(v){ // sample async action
-//     return new Promise(resolve => {
-//         setTimeout(() => resolve(v * 2), 100)
-//     });
-// };
-
 var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
 let actions = [];
 

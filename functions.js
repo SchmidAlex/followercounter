@@ -6,9 +6,6 @@ const InstaClient = new Insta();
 
 const fetchFollowers = function (element) {
     return new Promise((resolve) => {
-        //if element.account is empty
-
-        console.log(element);
         switch (element.name) {
             case 'twitter':
                 const consumerClient = new TwitterApi({
@@ -28,11 +25,10 @@ const fetchFollowers = function (element) {
                 });
                 break;
             case 'instagram':
-                /*console.log('Before', element);
+                /*
                 InstaClient.getProfile(element.account)
                     .then((profile) => {
                         element.follower = profile.followers;
-                        console.log('after', element);
                         resolve(element);
                     })
                     .catch((err) => console.log('Error, insta!', err));*/

@@ -47,22 +47,15 @@
 
       html += "<div class=\"flexbox1\"><button id=\"submit\">show</button></div>";
 
-      // Create account form 
-      //<form id="bevor_eingabe">
-      //foreach arg => element { element(element = plattform name)}
-      //</form>
-
       document.getElementById('content').innerHTML = html;
-      // arg.forEach(element => 
-
-      //)
 
       document.getElementById('submit').addEventListener('click', function (event) {
         event.preventDefault();
-        // use a loop over form fields
+
         let instagram = document.getElementById('instagram').value;
         let twitter = document.getElementById("twitter").value;
-        // ipcRenderer.send("asynchronous-message", {instagram, twitter})
+
+        //need to make this dynamically and loop through
         let data = {
           plattform: [{
               name: "twitter",
@@ -79,14 +72,12 @@
 
     });
 
-    ipcRenderer.on('set-plattform-account-reply', (event, arg) => {
-      console.log(event)
-      ipcRenderer.send('get-followers', arg)
+    ipcRenderer.on('set-plattform-account-reply', (event) => {
+      ipcRenderer.send('get-followers')
     });
 
     ipcRenderer.on('get-followers-reply', (event, arg) => {
-      //display hidden -> id bevor_eingabe
-      //todo the visualisation of arg
+      //we dont come into this code
       console.log('follower reply worked');
       console.log(arg);
       var content = "";
@@ -96,12 +87,8 @@
         content += "<div class=\"account\">" + element.acount + "</div>";
         content += "<div class=\"follower\">" + element.follower + "</div>";
 
-        //element.name;
-        //element.account;
-        //element.follower;
-
       });
-      console.log("test")
+
       document.getElementById("content").innerHTML = content;
     });
 
