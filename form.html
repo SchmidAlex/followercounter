@@ -40,12 +40,16 @@
     ipcRenderer.on('get-plattforms-reply', (event, arg) => {
       var html;
 
+      html += "<form id=\"AccountNameFields\">";
+
       arg.forEach(element => {
-        html += "<form id=\"AccountNameFields\"><div class=\"flexbox\"><label for=" + element + ">" + element +
-          "*:</label><input \" type=\"text\" id=" + element + " name=\"element\"></div></form>"
+        html += "<div class=\"flexbox\"><label for=\"" + element + "\">" + element +
+          "*:</label><input \" type=\"text\" id=\"" + element + "\" name=\"" + element + "\"></div>"
       });
 
       html += "<div class=\"flexbox1\"><button id=\"submit\">show</button></div>";
+
+      html += "</form>";
 
       document.getElementById('content').innerHTML = html;
 
@@ -77,14 +81,12 @@
     });
 
     ipcRenderer.on('get-followers-reply', (event, arg) => {
-      //we dont come into this code
-      console.log('follower reply worked');
       console.log(arg);
       var content = "";
-      arg.plattform.forEach(element => {
+      arg.forEach(element => {
 
         content += "<div class=\"plattform\">" + element.name + "</div>";
-        content += "<div class=\"account\">" + element.acount + "</div>";
+        content += "<div class=\"account\">" + element.account + "</div>";
         content += "<div class=\"follower\">" + element.follower + "</div>";
 
       });
