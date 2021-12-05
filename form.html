@@ -38,7 +38,7 @@
     ipcRenderer.send('get-plattforms');
 
     ipcRenderer.on('get-plattforms-reply', (event, arg) => {
-      var html;
+      var html = "";
 
       html += "<form id=\"AccountNameFields\">";
 
