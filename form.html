@@ -87,6 +87,8 @@
     ipcRenderer.on('get-followers-reply', (event, arg) => {
       //display hidden -> id bevor_eingabe
       //todo the visualisation of arg
+      console.log('follower reply worked');
+      console.log(arg);
       var content = "";
       arg.plattform.forEach(element => {
 

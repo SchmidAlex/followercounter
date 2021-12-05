@@ -53,7 +53,7 @@ ipcMain.on('get-followers', (event) => {
             accounts = values; // every promise is replaced by its element
             console.log('Accounts', accounts);
             fs.writeFileSync(configFile, JSON.stringify(accounts));
-            event.reply('get-followers-reply');
+            event.reply('get-followers-reply', accounts); //why does this reply not work??
         })
         .catch((err) => console.log('Error!', err));
 });
