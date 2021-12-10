@@ -9,7 +9,6 @@ body{
 h1{
     font-family: 'Comforter Brush', cursive;
     /*font-family: 'Abel', sans-serif;*/
-    /*font-family: 'Sedgwick Ave Display', cursive;*/
     color:deeppink;
     text-align: center;
     letter-spacing: 0.1rem;
@@ -145,3 +144,35 @@ body::after {
     margin-top: 3%;
     text-align: center;
   }
+  .element-output {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    opacity: 0.8;
+    font-size: 2rem;
+    max-width: 400px;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+    font-family: 'Abel', sans-serif;
+    flex-wrap: wrap
+}
+.plattform{
+    margin: auto;
+    font-weight: bold;
+    
+   
+}
+.follower{
+    margin: auto;
+    font-weight: bold;
+    border-bottom: 1px solid deeppink;
+    font-family: 'Sedgwick Ave Display', cursive;
+}
+.account{
+    margin: auto;
+    font-weight: bold;
+     
+}
