@@ -45,9 +45,6 @@ ipcMain.on('set-plattform-account', (event, arg) => {
     event.reply('set-plattform-account-reply');
 });
 
-var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
-let actions = [];
-
 ipcMain.on('get-followers', (event) => {
     let actions = [];
     let accounts = [];
@@ -64,7 +61,7 @@ ipcMain.on('get-followers', (event) => {
             accounts = values; // every promise is replaced by its element
             console.log('Accounts', accounts);
             fs.writeFileSync(configFile, JSON.stringify(accounts));
-            actions.event.reply('get-followers-reply', accounts);
+            event.reply('get-followers-reply', accounts);
         })
         .catch((err) => console.log('Error!', err));
 });
