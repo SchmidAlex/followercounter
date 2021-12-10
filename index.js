@@ -7,13 +7,17 @@ let configFile = 'db.json';
 var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
 
 ipcMain.on('check-accounts', (event) => {
-    configFileContent = json;
     let accountFound;
-    configFileContent.plattforms.forEach((element) => {
-        if (element.account) {
-            accountFound = true;
-        }
-    });
+
+    if (fs.readFileSync(configFile, 'utf8')) {
+        configFileContent = JSON.parse(fs.readFileSync(configFile, 'utf8'));
+
+        configFileContent.forEach((element) => {
+            if (element.account) {
+                accountFound = true;
+            }
+        });
+    }
 
     if (accountFound) {
         event.reply('set-plattform-account-reply');
@@ -67,6 +71,7 @@ ipcMain.on('get-followers', (event) => {
 });
 
 ipcMain.on('reset-accounts', (event) => {
+    fs.writeFileSync(configFile, JSON.stringify(''));
     event.reply('reset');
 });
 
