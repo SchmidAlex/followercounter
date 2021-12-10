@@ -9,7 +9,10 @@ var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
 ipcMain.on('check-accounts', (event) => {
     let accountFound;
 
-    if (JSON.parse(fs.readFileSync(configFile, 'utf8')) != '' && JSON.parse(fs.readFileSync(configFile, 'utf8')) != null) {
+    if (
+        JSON.parse(fs.readFileSync(configFile, 'utf8')) != '' &&
+        JSON.parse(fs.readFileSync(configFile, 'utf8')) != null
+    ) {
         configFileContent = JSON.parse(fs.readFileSync(configFile, 'utf8'));
 
         configFileContent.forEach((element) => {
@@ -35,18 +38,22 @@ ipcMain.on('get-plattforms', (event) => {
 });
 
 ipcMain.on('set-plattform-account', (event, arg) => {
-    json.plattforms.forEach((element) => {
-        arg.plattform.forEach((value) => {
-            if (element.name === value.name) {
-                if (value.account) {
-                    element.account = value.account;
+    if (arg.plattform.length === 0) {
+        event.reply('get-plattforms-reply');
+    } else {
+        json.plattforms.forEach((element) => {
+            arg.plattform.forEach((value) => {
+                if (element.name === value.name) {
+                    if (value.account) {
+                        element.account = value.account;
+                    }
                 }
-            }
+            });
         });
-    });
 
-    fs.writeFileSync(plattformsFile, JSON.stringify(json));
-    event.reply('set-plattform-account-reply');
+        fs.writeFileSync(plattformsFile, JSON.stringify(json));
+        event.reply('set-plattform-account-reply');
+    }
 });
 
 ipcMain.on('get-followers', (event) => {
@@ -63,7 +70,6 @@ ipcMain.on('get-followers', (event) => {
     Promise.all(actions)
         .then((values) => {
             accounts = values; // every promise is replaced by its element
-            console.log('Accounts', accounts);
             fs.writeFileSync(configFile, JSON.stringify(accounts));
             event.reply('get-followers-reply', accounts);
         })
@@ -92,9 +98,7 @@ const createWindow = () => {
         },
     });
 
-    //win.webContents.openDevTools();
-
-    win.loadFile('form.html');
+    win.loadFile('collector.html');
 };
 
 app.whenReady().then(() => {

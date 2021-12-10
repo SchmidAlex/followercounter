@@ -40,14 +40,6 @@
 
     ipcRenderer.send('check-accounts');
 
-    ipcRenderer.on('ceck-acconts-reply', (event, arg) => {
-      if (arg) {
-
-      } else {
-        ipcRenderer.send('get-plattforms');
-      }
-    });
-
     ipcRenderer.on('reset', (event, arg) => {
       ipcRenderer.send('get-plattforms');
     });
@@ -105,7 +97,7 @@
         content += "<div class=\"element-output\">";
         content += "<div class=\"plattform\">" + element.name + ":" + "</div>";
         //content += "<div class=\"account\">" + element.account + "</div>";
-        content += "<div class=\"follower\">" + element.follower.toLocaleString('de-DE') + "</div>"; 
+        content += "<div class=\"follower\">" + element.follower.toLocaleString('de-DE') + "</div>";
         content += "</div>"
       });
 
