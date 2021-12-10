@@ -10,6 +10,8 @@ When you start the app, a renderer will show up and within is a Form, where you 
 
 # Coding conventions
 
+## Javascript
+
 To style our code we will use the prettier plugin from vs-code. Here are the configuration:
 
 `{
@@ -19,6 +21,12 @@ To style our code we will use the prettier plugin from vs-code. Here are the con
   "tabWidth": 4
 }
 `
+
+## HTML
+
+## CSS
+
+## JSON
 
 # Code of conduct
 
