@@ -40,14 +40,6 @@
 
     ipcRenderer.send('check-accounts');
 
-    ipcRenderer.on('ceck-acconts-reply', (event, arg) => {
-      if (arg) {
-
-      } else {
-        ipcRenderer.send('get-plattforms');
-      }
-    });
-
     ipcRenderer.on('reset', (event, arg) => {
       ipcRenderer.send('get-plattforms');
     });
