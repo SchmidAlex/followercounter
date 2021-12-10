@@ -10,7 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&family=Sedgwick+Ave+Display&display=swap"
+    rel="stylesheet">
   <title> TC | The Collector </title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -60,18 +62,21 @@
         let instagram = document.getElementById('instagram').value;
         let twitter = document.getElementById("twitter").value;
 
-        //need to make this dynamically and loop through
-        let data = {
-          plattform: [{
-              name: "twitter",
-              account: twitter
-            },
-            {
-              name: "instagram",
-              account: instagram
-            }
-          ]
-        };
+        let plattform = [];
+
+        arg.forEach(element => {
+          if (document.getElementById(element).value != '') {
+            let plattformElement = {};
+            plattformElement['name'] = element
+            plattformElement['account'] = document.getElementById(element).value;
+            plattform.push(plattformElement);
+          }
+        });
+
+        let data = {};
+
+        data['plattform'] = plattform;
+
         ipcRenderer.send('set-plattform-account', data);
       });
 

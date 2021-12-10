@@ -15,6 +15,7 @@ ipcMain.on('get-plattforms', (event) => {
 });
 
 ipcMain.on('set-plattform-account', (event, arg) => {
+    console.log(arg.plattform);
     json.plattforms.forEach((element) => {
         arg.plattform.forEach((value) => {
             if (element.name === value.name) {
