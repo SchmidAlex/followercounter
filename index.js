@@ -9,7 +9,10 @@ var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
 ipcMain.on('check-accounts', (event) => {
     let accountFound;
 
-    if (JSON.parse(fs.readFileSync(configFile, 'utf8')) != '' && JSON.parse(fs.readFileSync(configFile, 'utf8')) != null) {
+    if (
+        JSON.parse(fs.readFileSync(configFile, 'utf8')) != '' &&
+        JSON.parse(fs.readFileSync(configFile, 'utf8')) != null
+    ) {
         configFileContent = JSON.parse(fs.readFileSync(configFile, 'utf8'));
 
         configFileContent.forEach((element) => {
@@ -63,7 +66,6 @@ ipcMain.on('get-followers', (event) => {
     Promise.all(actions)
         .then((values) => {
             accounts = values; // every promise is replaced by its element
-            console.log('Accounts', accounts);
             fs.writeFileSync(configFile, JSON.stringify(accounts));
             event.reply('get-followers-reply', accounts);
         })
@@ -92,9 +94,7 @@ const createWindow = () => {
         },
     });
 
-    //win.webContents.openDevTools();
-
-    win.loadFile('form.html');
+    win.loadFile('collector.html');
 };
 
 app.whenReady().then(() => {
