@@ -10,6 +10,8 @@ When you start the app, a renderer will show up and within is a Form, where you 
 
 # Coding conventions
 
+## Javascript
+
 To style our code we will use the prettier plugin from vs-code. Here are the configuration:
 
 `{
@@ -19,6 +21,12 @@ To style our code we will use the prettier plugin from vs-code. Here are the con
   "tabWidth": 4
 }
 `
+
+## HTML
+
+## CSS
+
+## JSON
 
 # Code of conduct
 
@@ -65,8 +73,13 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
 This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
 available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
+# Developers
 
-@all-contributors bot!
+| Developer        | Area          | Link to profile                   |
+| ---------------- |:-------------:|:---------------------------------:|
+| SchmidAlex       | Backend       | https://github.com/SchmidAlex     |
+| cmondillo        | Backend       | https://github.com/cmondillo      |
+| YassineOuziad    | Frontend      | https://github.com/YassineOuziad  |
 
 
 ![alt text](https://github.com/SchmidAlex/followercounter/blob/main/img/AppLogo.png?raw=true)
