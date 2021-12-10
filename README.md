@@ -22,5 +22,5 @@ To style our code we will use the prettier plugin from vs-code. Here are the con
 
 ## Code of conduct
 
-We always use names for variables and functions to say, what the function is doing.
+We always use names for variables and functions to say, what the function is doing or what you get with the call.
 
