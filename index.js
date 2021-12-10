@@ -6,6 +6,22 @@ let plattformsFile = 'plattforms.json';
 let configFile = 'db.json';
 var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
 
+ipcMain.on('check-accounts', (event) => {
+    configFileContent = json;
+    let accountFound;
+    configFileContent.plattforms.forEach((element) => {
+        if (element.account) {
+            accountFound = true;
+        }
+    });
+
+    if (accountFound) {
+        event.reply('set-plattform-account-reply');
+    } else {
+        event.reply('reset');
+    }
+});
+
 ipcMain.on('get-plattforms', (event) => {
     let plattforms = [];
     json.plattforms.forEach((element) => {
@@ -32,8 +48,9 @@ ipcMain.on('set-plattform-account', (event, arg) => {
 var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
 let actions = [];
 
-let accounts = [];
 ipcMain.on('get-followers', (event) => {
+    let actions = [];
+    let accounts = [];
     json.plattforms.forEach((element) => {
         if (element.account) {
             let fn = fetchFollowers(element);
@@ -47,9 +64,13 @@ ipcMain.on('get-followers', (event) => {
             accounts = values; // every promise is replaced by its element
             console.log('Accounts', accounts);
             fs.writeFileSync(configFile, JSON.stringify(accounts));
-            event.reply('get-followers-reply', accounts);
+            actions.event.reply('get-followers-reply', accounts);
         })
         .catch((err) => console.log('Error!', err));
+});
+
+ipcMain.on('reset-accounts', (event) => {
+    event.reply('reset');
 });
 
 const createWindow = () => {
