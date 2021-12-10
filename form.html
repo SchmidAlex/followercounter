@@ -10,8 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&display=swap" rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&family=Sedgwick+Ave+Display&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&family=Sedgwick+Ave+Display&display=swap"
     rel="stylesheet">
   <title> TC | The Collector </title>
   <link rel="stylesheet" href="style.css">
@@ -24,8 +23,9 @@
 
   <h1>The Collector</h1>
   <p class="text">All your follower in one place</p>
-
+  
   <div id="content"></div>
+  
 
   <p class="text0">One World One Place</p>
   <p class="explanation"> * Enter your nickname in the relevant fields and confirm with show</p>
@@ -99,6 +99,7 @@
     });
 
     ipcRenderer.on('get-followers-reply', (event, arg) => {
+      
       var content = "";
       arg.forEach(element => {
         content += "<div class=\"element-output\">";
@@ -116,6 +117,8 @@
         ipcRenderer.send('reset-accounts');
       });
     });
+
+    
 
   </script>
 
