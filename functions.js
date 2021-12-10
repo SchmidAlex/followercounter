@@ -21,7 +21,14 @@ const fetchFollowers = function (element) {
                                 user._realData[0].followers_count;
                             resolve(element);
                         })
-                        .catch((err) => console.log('Error, twitter!', err));
+                        .catch((err) =>
+                            console.log(
+                                'Error, twitter user ' +
+                                    element.account +
+                                    ' not found',
+                                err,
+                            ),
+                        );
                 });
                 break;
             case 'instagram':
