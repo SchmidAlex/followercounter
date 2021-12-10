@@ -38,7 +38,19 @@
       ipcRenderer
     } = require('electron');
 
-    ipcRenderer.send('get-plattforms');
+    ipcRenderer.send('check-accounts');
+
+    ipcRenderer.on('ceck-acconts-reply', (event, arg) => {
+      if (arg) {
+
+      } else {
+        ipcRenderer.send('get-plattforms');
+      }
+    });
+
+    ipcRenderer.on('reset', (event, arg) => {
+      ipcRenderer.send('get-plattforms');
+    });
 
     ipcRenderer.on('get-plattforms-reply', (event, arg) => {
       var html = "";
@@ -96,7 +108,13 @@
         content += "</div>"
       });
 
+      content += "<div class=\"flexbox1\"><button id=\"reset\">reset</button></div>"
+
       document.getElementById("content").innerHTML = content;
+
+      document.getElementById('reset').addEventListener('click', function (event) {
+        ipcRenderer.send('reset-accounts');
+      });
     });
 
   </script>
