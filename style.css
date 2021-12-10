@@ -8,17 +8,21 @@ body{
 }
 h1{
     font-family: 'Comforter Brush', cursive;
+    /*font-family: 'Abel', sans-serif;*/
+    /*font-family: 'Sedgwick Ave Display', cursive;*/
     color:deeppink;
     text-align: center;
+    letter-spacing: 0.1rem;
     font-size: 5em;
+    font-weight: 600;
     text-shadow: 0 0 5px white,
                  0 0 10px white,
-                 0 0 20px #ff94fa,
+                 0 0 20px #ffbefc,
                  0 0 40px #ff94fa,
                  0 0 60px #ff94fa,
                  0 0 90px #ff94fa,
-                 0 0 120px #ff94fa,
-                 0 0 160px #ff94fa;
+                 0 0 120px hsl(303, 100%, 75%),
+                 0 0 160px hsl(303, 100%, 73%);
     margin-top: 3%;
 }
 .text{
