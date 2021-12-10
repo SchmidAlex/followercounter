@@ -87,7 +87,6 @@
     });
 
     ipcRenderer.on('get-followers-reply', (event, arg) => {
-      console.log(arg);
       var content = "";
       arg.forEach(element => {
         content += "<div class=\"element-output\">";
