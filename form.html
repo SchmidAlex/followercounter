@@ -84,11 +84,11 @@
       console.log(arg);
       var content = "";
       arg.forEach(element => {
-
+        content += "<div class=\"element-output\">";
         content += "<div class=\"plattform\">" + element.name + "</div>";
         content += "<div class=\"account\">" + element.account + "</div>";
         content += "<div class=\"follower\">" + element.follower + "</div>";
-
+        content += "</div>"
       });
 
       document.getElementById("content").innerHTML = content;
