@@ -1,1 +1,11 @@
-{"plattforms":[{"name":"twitter","account":"asdf","follower":664},{"name":"instagram","account":"Dsvcds","follower":126},{"name":"scheissbuch"},{"name":"tiktok"},{"name":"linkedin"},{"name":"spotify"},{"name":"onlyfans"}]}
+{
+    "plattforms": [
+        { "name": "twitter", "account": "asdf", "follower": 664 },
+        { "name": "instagram", "account": "Dsvcds", "follower": 126 },
+        { "name": "scheissbuch" },
+        { "name": "tiktok" },
+        { "name": "linkedin" },
+        { "name": "spotify" },
+        { "name": "onlyfans" }
+    ]
+}
