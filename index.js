@@ -9,7 +9,7 @@ var json = JSON.parse(fs.readFileSync(plattformsFile, 'utf8'));
 ipcMain.on('check-accounts', (event) => {
     let accountFound;
 
-    if (fs.readFileSync(configFile, 'utf8')) {
+    if (JSON.parse(fs.readFileSync(configFile, 'utf8')) != '' && JSON.parse(fs.readFileSync(configFile, 'utf8')) != null) {
         configFileContent = JSON.parse(fs.readFileSync(configFile, 'utf8'));
 
         configFileContent.forEach((element) => {
@@ -72,6 +72,13 @@ ipcMain.on('get-followers', (event) => {
 
 ipcMain.on('reset-accounts', (event) => {
     fs.writeFileSync(configFile, JSON.stringify(''));
+    json.plattforms.forEach((element) => {
+        if (element.account) {
+            element.account = null;
+            element.follower = null;
+        }
+    });
+    fs.writeFileSync(plattformsFile, JSON.stringify(json));
     event.reply('reset');
 });
 
