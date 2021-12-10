@@ -22,11 +22,6 @@ To style our code we will use the prettier plugin from vs-code. Here are the con
 }
 `
 
-## HTML
-
-## CSS
-
-## JSON
 
 # Code of conduct
 
