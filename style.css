@@ -164,7 +164,6 @@ body::after {
     margin: auto;
     font-weight: bold;
     border-bottom: 1px solid deeppink;
-    font-family: 'Sedgwick Ave Display', cursive;
 }
 .account{
     margin: auto;
