@@ -38,18 +38,22 @@ ipcMain.on('get-plattforms', (event) => {
 });
 
 ipcMain.on('set-plattform-account', (event, arg) => {
-    json.plattforms.forEach((element) => {
-        arg.plattform.forEach((value) => {
-            if (element.name === value.name) {
-                if (value.account) {
-                    element.account = value.account;
+    if (arg.plattform.length === 0) {
+        event.reply('get-plattforms-reply');
+    } else {
+        json.plattforms.forEach((element) => {
+            arg.plattform.forEach((value) => {
+                if (element.name === value.name) {
+                    if (value.account) {
+                        element.account = value.account;
+                    }
                 }
-            }
+            });
         });
-    });
 
-    fs.writeFileSync(plattformsFile, JSON.stringify(json));
-    event.reply('set-plattform-account-reply');
+        fs.writeFileSync(plattformsFile, JSON.stringify(json));
+        event.reply('set-plattform-account-reply');
+    }
 });
 
 ipcMain.on('get-followers', (event) => {
