@@ -32,14 +32,14 @@ const fetchFollowers = function (element) {
                 });
                 break;
             case 'instagram':
-                /*InstaClient.getProfile(element.account)
+                InstaClient.getProfile(element.account)
                     .then((profile) => {
                         element.follower = profile.followers;
                         resolve(element);
                     })
-                    .catch((err) => console.log('Error, insta!', err));*/
+                    .catch((err) => console.log('Error, insta!', err));
 
-                resolve(element);
+                //resolve(element);
                 break;
         }
     });
