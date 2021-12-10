@@ -1,50 +1,40 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+body {
     background-color: #000;
     z-index: -1;
 }
-h1{
+h1 {
     font-family: 'Comforter Brush', cursive;
     /*font-family: 'Abel', sans-serif;*/
-    color:deeppink;
+    color: deeppink;
     text-align: center;
     letter-spacing: 0.1rem;
     font-size: 5em;
     font-weight: 600;
-    text-shadow: 0 0 5px white,
-                 0 0 10px white,
-                 0 0 20px #ffbefc,
-                 0 0 40px #ff94fa,
-                 0 0 60px #ff94fa,
-                 0 0 90px #ff94fa,
-                 0 0 120px hsl(303, 100%, 75%),
-                 0 0 160px hsl(303, 100%, 73%);
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px #ffbefc,
+        0 0 40px #ff94fa, 0 0 60px #ff94fa, 0 0 90px #ff94fa,
+        0 0 120px hsl(303, 100%, 75%), 0 0 160px hsl(303, 100%, 73%);
     margin-top: 3%;
 }
-.text{
+.text {
     font-family: 'Abel', sans-serif;
     text-align: center;
     color: #000000;
     font-size: 1.5em;
     font-weight: 700;
     margin-bottom: 1%;
-    text-shadow: 0 0 5px white,
-                 0 0 10px white,
-                 0 0 20px rgb(255, 255, 255),
-                 0 0 40px deeppink,
-                 0 0 60px deeppink,
-                 0 0 90px deeppink,
-                 0 0 120px deeppink,
-                 0 0 160px deeppink;
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px rgb(255, 255, 255),
+        0 0 40px deeppink, 0 0 60px deeppink, 0 0 90px deeppink,
+        0 0 120px deeppink, 0 0 160px deeppink;
 }
-.text0{
+.text0 {
     font-family: 'Abel', sans-serif;
     letter-spacing: 0.3em;
     text-align: center;
-    color:#ffffff;
+    color: #ffffff;
     font-size: 2em;
     font-weight: 900;
     margin-bottom: 3%;
@@ -59,45 +49,44 @@ h1{
     color: #ffffff;
 }
 .flexbox {
-        min-width: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 2%;
-        /*max-width: 50%;*/
-        font-size: 2rem;
-    }
+    min-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 2%;
+    /*max-width: 50%;*/
+    font-size: 2rem;
+}
 
-.flexbox1{
+.flexbox1 {
     min-width: 100%;
     margin-top: 2%;
     display: flex;
     justify-content: center;
-    
 }
-input{
+input {
     height: 2em;
 }
-label{
- margin: 1%;
+label {
+    margin: 1%;
 }
-.explanation{
+.explanation {
     font-size: 1em;
     color: #ffffff;
     text-align: center;
-    margin-top:2%;
+    margin-top: 2%;
 }
-#submit{
+#submit {
     margin: 2% 2%;
 }
 
 body {
     width: 100%;
     height: auto;
-  }
-  
+}
+
 body::after {
-    content: "";
+    content: '';
     background: url(img/AppLogo.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -107,39 +96,36 @@ body::after {
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;   
-  }
-  button{
-      height: 40px;
-      width: 80px;
-      font-size: 1.5rem;
-      font-family: 'Abel', sans-serif;
-      color:rgb(255, 255, 255);
-      background-color: rgb(122, 122, 122);
-      margin-bottom: 2%;
-  }
-  #Alien{
-        position: fixed;
-        margin-top: 40%;
-        margin-left: 80%;       
-      
-  }
-  .Alien{
-      height: 120px;
-      z-index: -1;
-      border-radius: 360px;
-      opacity: 0.5;
-      text-align: center;
-         
-  }
- 
-  .copy{
+    z-index: -1;
+}
+button {
+    height: 40px;
+    width: 80px;
+    font-size: 1.5rem;
+    font-family: 'Abel', sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: rgb(122, 122, 122);
+    margin-bottom: 2%;
+}
+#Alien {
+    position: absolute;
+    right: 150px;
+}
+.Alien {
+    height: 120px;
+    z-index: -1;
+    border-radius: 360px;
+    opacity: 0.5;
+    text-align: center;
+}
+
+.copy {
     font-size: 0.6em;
     color: #ffffff;
     margin-top: 3%;
     text-align: center;
-  }
-  .element-output {
+}
+.element-output {
     display: flex;
     justify-content: center;
     background-color: white;
@@ -152,21 +138,18 @@ body::after {
     margin-right: auto;
     padding: 1%;
     font-family: 'Abel', sans-serif;
-    flex-wrap: wrap
+    flex-wrap: wrap;
 }
-.plattform{
+.plattform {
     margin: auto;
     font-weight: bold;
-    
-   
 }
-.follower{
+.follower {
     margin: auto;
     font-weight: bold;
     border-bottom: 1px solid deeppink;
 }
-.account{
+.account {
     margin: auto;
     font-weight: bold;
-     
 }

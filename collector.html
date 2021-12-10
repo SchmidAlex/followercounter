@@ -10,29 +10,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&family=Sedgwick+Ave+Display&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abel&family=Comforter+Brush&family=Sedgwick+Ave+Display&display=swap"
     rel="stylesheet">
   <title> TC | The Collector </title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
- 
+
 
   <h1>The Collector</h1>
   <p class="text">All your follower in one place</p>
-  
+
   <div id="content"></div>
-  <div id="Alien">
-    <img class="Alien" src="img/Domcake-Dancing-Alien.gif" alt="Dancing Alien">
-  </div>
-  
-
-  <p class="text0">One World One Place</p>
-
- 
-
-  <p class="explanation"> * Enter your nickname in the relevant fields and confirm with show</p>
 
   <p class="copy">&copy; Claudio/Alexander/Yassine</p>
 
@@ -60,7 +51,8 @@
 
       html += "<div class=\"flexbox1\"><button id=\"submit\">show</button></div>";
 
-      html += "</form>";
+      html +=
+        "</form>  <p class=\"text0\">One World One Place</p><p class=\"explanation\"> * Enter your nickname in the relevant fields and confirm with show</p>";
 
       document.getElementById('content').innerHTML = html;
 
@@ -95,7 +87,7 @@
     });
 
     ipcRenderer.on('get-followers-reply', (event, arg) => {
-      
+
       var content = "";
       arg.forEach(element => {
         content += "<div class=\"element-output\">";
@@ -105,7 +97,11 @@
         content += "</div>"
       });
 
-      content += "<div class=\"flexbox1\"><button id=\"reset\">reset</button></div>"
+      content +=
+        "<div class=\"flexbox1\"><button id=\"reset\">reset</button></div><p class=\"text0\">One World One Place</p>";
+
+      content +=
+        "<div id=\"Alien\"><img class=\"Alien\" src=\"img/Domcake-Dancing-Alien.gif\" alt=\"Dancing Alien\"></div>";
 
       document.getElementById("content").innerHTML = content;
 
@@ -113,8 +109,6 @@
         ipcRenderer.send('reset-accounts');
       });
     });
-
-    
 
   </script>
 
